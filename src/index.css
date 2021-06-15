@@ -1,11 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Mate+SC&family=Viaoda+Libre&display=swap');
+
 body {
   font: 14px "Century Gothic", Futura, sans-serif;
   margin: 20px;
 }
 
+#root{
+  background-color: #7A7B5A;
+}
+
 .game {
   display: flex;
   justify-content: center;
+  padding-top: 3%;
   }
 
   .game-board{
@@ -18,8 +25,12 @@ body {
   }
 
   .game-info-status{
-    margin-left: 40px;
+    padding-bottom: 6%;
+    margin-left: 10px;
+    font-family: 'Viaoda Libre', cursive;
+    font-size: 25px;
   }
+
   .game-info-li{
     padding-bottom: 10%;
   }
@@ -52,3 +63,30 @@ body {
 .kbd-navigation .square:focus {
   background: #ddd;
 }
+
+.mate-font{
+  font-family: 'Mate SC', serif;
+}
+
+@media only screen and (min-width: 800px) {
+
+#root{
+  height: 800px;
+}
+
+}
+
+@media only screen and (max-width: 550px) {
+
+  .game {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 30%;
+    }
+
+    .square{
+      height: 50px;
+      width: 50px;
+    }
+  }

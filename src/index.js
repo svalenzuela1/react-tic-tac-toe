@@ -1,9 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
+class Heading extends React.Component{
 
-//Function components are less tedious to write than classes, and many components can be expressed this way.
+  render(){
+      const {gameName} = this.props
+      
+      return(
+      <div className={"text-center"}>
+        <h2 className={"mate-font pt-5"}>{gameName}</h2>
+        </div>)
+  }
+
+}
+
 function Square(props) {
   return (
     <button className="square" onClick={props.onClick}>
@@ -23,7 +35,6 @@ class Board extends React.Component {
   render() {
     return (
       <div>
-      {/* formula for this do not get lost: <div className="status">{status}</div> */}
         <div className="board-row">
           {this.renderSquare(0)}
           {this.renderSquare(1)}
@@ -59,14 +70,12 @@ class Game extends React.Component {
   handleClick(i) {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
-    // we call .slice() to create a copy of the squares array to modify instead of modifying the existing array.
     const squares = current.squares.slice();
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
       squares[i] = this.state.xIsNext ? "X" : "O";
     this.setState({
-      //Unlike the array push() method you might be more familiar with, the concat() method doesn't mutate the original array, so we prefer it.
       history: history.concat([
         {
           squares: squares,
@@ -76,7 +85,6 @@ class Game extends React.Component {
       xIsNext: !this.state.xIsNext,
     });
   }
-  // method to update the step number with relation to x
   jumpTo(step) {
     this.setState({
       stepNumber: step,
@@ -88,10 +96,10 @@ class Game extends React.Component {
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
     const moves = history.map((step, move) => {
-      const desc = move ? "Go to move #" + move : "Go to game start";
+      const desc = move ? "Go to Move #" + move : "Go to Game Start";
       return (
         <li key={move} className={"game-info-li"}>
-          <button onClick={() => this.jumpTo(move)} className={"moves-btn"}>{desc}</button>
+          <button onClick={() => this.jumpTo(move)} className={"btn btn-dark"}>{desc}</button>
         </li>
       );
     });
@@ -113,13 +121,12 @@ class Game extends React.Component {
         </div>
         <div className="game-info">
           <div className={"game-info-status"}>{status}</div>
-          <ol className={"game-info-ol"}>{moves}</ol>
+          <ol className={"game-info-ol list-unstyled"}>{moves}</ol>
         </div>
       </div>
     );
   }
 }
-//this function to declare a winner
    function calculateWinner(squares) {
      const lines = [
        [0, 1, 2],
@@ -143,8 +150,13 @@ class Game extends React.Component {
      }
      return null;
    }
-// ========================================
+
+/* ============================================= */
 ReactDOM.render(
- <Game /> ,
+  <div>
+    <Heading gameName={"Tic-Tac-Toe"}/>
+
+    <Game />
+ </div>,
   document.getElementById('root')
 );
