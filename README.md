@@ -23,7 +23,7 @@ at the top of the page
 
 ## Project Description
 
-For this project, I will be making an interactive Tic Tac Toe Game with JavaScript using Reacr. With every move, the user will have the option to go back to either start of the game or go back to whichever number Move. The winner is displayed next to the game box. This project also contains the bootstrap library and utilizes bootstrap classes.
+For this project, I will be making an interactive Tic Tac Toe Game with JavaScript using React. With every move, the user will have the option to go back to either start of the game or go back to whichever number Move they choose. The winner is displayed next to the game box. This project also contains the bootstrap library and utilizes bootstrap classes.
 
 ## Deployed Link
 
