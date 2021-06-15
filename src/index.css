@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Mate+SC&family=Viaoda+Libre&display=swap');
 
-body {
-  font: 14px "Century Gothic", Futura, sans-serif;
-  margin: 20px;
-}
-
 #root{
   background-color: #7A7B5A;
 }
